@@ -1,13 +1,26 @@
-import React from 'react';
+import React, {RefObject} from 'react';
+import uniqid from "uniqid";
 
-const Select: React.FC = () => {
+
+type propTypes = {
+    units: string[],
+}
+
+const Select = React.memo(React.forwardRef<HTMLSelectElement, propTypes>((props, ref) => {
+    const {units} = props
+
     return (
         <>
-            <select className="select">
-                <option value="" disabled selected>Choose unit</option>
+            <select ref={ref} className="select">
+                <option style={{display: 'none'}} value="" selected>Choose unit</option>
+                {
+                    units.map(unit => (
+                        <option key={uniqid()} value={unit}>{unit}</option>
+                    ))
+                }
             </select>
         </>
     );
-};
+}));
 
 export default Select;
