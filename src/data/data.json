@@ -1,0 +1,4 @@
+{
+  "units": ["Millimeter (mm)", "Yard (yd)", "Kilometer (km)"],
+  "coefficients": [0.001, 0.9144, 1000]
+}

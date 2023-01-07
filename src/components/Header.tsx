@@ -1,10 +1,15 @@
 import React from 'react';
 
-const Header:React.FC = () => {
+type propTypes = {
+    loadJson: any
+}
+
+const Header:React.FC<propTypes> = (props) => {
+    const {loadJson} = props
     return (
         <header className="header">
             <h3 className="center">UNIT CONVERTER</h3>
-            <input id="json" type="file" accept=".json"/>
+            <input id="json" type="file" accept=".json" onChange={loadJson}/>
             <label className="header__label" htmlFor="json">
                 <svg fill="#fff" clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round"
                      strokeMiterlimit="2" viewBox="0 0 24 24"

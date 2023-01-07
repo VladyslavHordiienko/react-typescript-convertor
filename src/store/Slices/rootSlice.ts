@@ -16,12 +16,15 @@ const rootSlice = createSlice({
     name: 'root',
     initialState,
     reducers: {
-        addUnits: (state, action:PayloadAction<string>) => {
-            console.log(action.payload)
+        addUnits: (state, action:PayloadAction<string[]>) => {
+            state.units = [...state.units, ...action.payload]
+        },
+        addCoefficients: (state, action:PayloadAction<number[]>) => {
+            state.coefficients = [...state.coefficients, ...action.payload]
         }
     }
 })
-export const {} = rootSlice.actions
+export const {addUnits, addCoefficients} = rootSlice.actions
 
 export const selectUnits = (state:RootState) => state.root.units
 export const selectCoefficients = (state:RootState) => state.root.coefficients

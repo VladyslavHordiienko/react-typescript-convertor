@@ -12,7 +12,7 @@ const Select = React.memo(React.forwardRef<HTMLSelectElement, propTypes>((props,
     return (
         <>
             <select ref={ref} className="select">
-                <option style={{display: 'none'}} value="" selected>Choose unit</option>
+                <option style={{display: 'none'}} value="" defaultValue={"Choose unit"}>Choose unit</option>
                 {
                     units.map(unit => (
                         <option key={uniqid()} value={unit}>{unit}</option>
